@@ -33,8 +33,8 @@ namespace AlgoritmoEstendidoEuclides
             resto = 1;
             string passo = ""; //string do passo a passo
 
-            numa = Math.Max(int.Parse(txt_numA.Text), int.Parse(txt_numB.Text)); //o maior número entra na variável numA
-            numb = Math.Min(int.Parse(txt_numA.Text), int.Parse(txt_numB.Text)); //o menor número entra na variável numB
+            numa = Math.Max(int.Parse(num_a.Text), int.Parse(num_b.Text)); //o maior número entra na variável numA
+            numb = Math.Min(int.Parse(num_a.Text), int.Parse(num_b.Text)); //o menor número entra na variável numB
 
             int a = numa; //armazenando o maior numero
             int b = numb; //armazenando o menor numero
@@ -51,8 +51,11 @@ namespace AlgoritmoEstendidoEuclides
                 numb = resto; //o resto vira o divisor da próxima divisão
             }
             //resultado é o último resto antes do resto ser igual a 0
-            passo += $"MDC({txt_numA.Text}, {txt_numB.Text}) = {numa}\r\n"; //mostra o resultado do mdc
-            passo += $"{combLinear} = {s} . {a} + {t} . {b}"; //mostra a combinação linear
+            passo += $"MDC({num_a.Text}, {num_b.Text}) = {numa}\r\n"; //mostra o resultado do mdc
+            if (t >= 0) //se o segundo termo da combinação linear for negativo, tirar o +
+                passo += $"{combLinear} = {s} . {a} + {t} . {b}"; //mostra a combinação linear   
+            else
+                passo += $"{combLinear} = {s} . {a} - {Math.Abs(t)} . {b}"; //mostra a combinação linear
             txt_resultado.Text = passo; //exibindo o resultado na tela
         }
     }
