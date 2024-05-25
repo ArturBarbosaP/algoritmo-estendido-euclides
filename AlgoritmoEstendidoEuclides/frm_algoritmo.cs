@@ -31,7 +31,7 @@ namespace AlgoritmoEstendidoEuclides
         {
             int numa, numb, quoc, resto;
             resto = 1;
-            string passo = ""; //string do passo a passo
+            ltx_passo.Items.Clear(); //limpando o passo a passo
 
             numa = Math.Max(int.Parse(num_a.Text), int.Parse(num_b.Text)); //o maior número entra na variável numA
             numb = Math.Min(int.Parse(num_a.Text), int.Parse(num_b.Text)); //o menor número entra na variável numB
@@ -45,18 +45,18 @@ namespace AlgoritmoEstendidoEuclides
                 quoc = numa / numb; //quociente dos dois números
                 resto = numa % numb; //resto da divisão, que será o divisor da próxima divisão
 
-                passo += $"{numa} = {numb} . {quoc} + {resto}\r\n"; //exibe a equação no passo a passo
+                ltx_passo.Items.Add($"{numa} = {numb} . {quoc} + {resto}"); //exibe a equação no passo a passo
 
                 numa = numb; //maior número vira o dividendo da divisão anterior
                 numb = resto; //o resto vira o divisor da próxima divisão
             }
             //resultado é o último resto antes do resto ser igual a 0
-            passo += $"MDC({num_a.Text}, {num_b.Text}) = {numa}\r\n"; //mostra o resultado do mdc
+            ltx_passo.Items.Add($"MDC({num_a.Text}, {num_b.Text}) = {numa}"); //mostra o resultado do mdc
+            ltx_passo.Items.Add("Combinação Linear:");
             if (t >= 0) //se o segundo termo da combinação linear for negativo, tirar o +
-                passo += $"{combLinear} = {s} . {a} + {t} . {b}"; //mostra a combinação linear   
+                ltx_passo.Items.Add($"{combLinear} = {s} . {a} + {t} . {b}"); //mostra a combinação linear
             else
-                passo += $"{combLinear} = {s} . {a} - {Math.Abs(t)} . {b}"; //mostra a combinação linear
-            txt_resultado.Text = passo; //exibindo o resultado na tela
+                ltx_passo.Items.Add($"{combLinear} = {s} . {a} - {Math.Abs(t)} . {b}"); //mostra a combinação linear
         }
     }
 }
