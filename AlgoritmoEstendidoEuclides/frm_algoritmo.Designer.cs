@@ -40,6 +40,7 @@
             // 
             // btn_calcular
             // 
+            btn_calcular.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btn_calcular.Location = new Point(38, 44);
             btn_calcular.Name = "btn_calcular";
             btn_calcular.Size = new Size(301, 27);
@@ -52,17 +53,22 @@
             // 
             num_a.Location = new Point(109, 16);
             num_a.Maximum = new decimal(new int[] { 5000, 0, 0, 0 });
+            num_a.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             num_a.Name = "num_a";
             num_a.Size = new Size(65, 23);
             num_a.TabIndex = 0;
+            num_a.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // num_b
             // 
+            num_b.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             num_b.Location = new Point(274, 16);
             num_b.Maximum = new decimal(new int[] { 5000, 0, 0, 0 });
+            num_b.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             num_b.Name = "num_b";
             num_b.Size = new Size(65, 23);
             num_b.TabIndex = 1;
+            num_b.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // lbl_numa
             // 
@@ -75,6 +81,7 @@
             // 
             // lbl_numb
             // 
+            lbl_numb.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lbl_numb.AutoSize = true;
             lbl_numb.Location = new Point(204, 20);
             lbl_numb.Name = "lbl_numb";
@@ -84,8 +91,10 @@
             // 
             // ltx_passo
             // 
+            ltx_passo.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             ltx_passo.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ltx_passo.FormattingEnabled = true;
+            ltx_passo.HorizontalScrollbar = true;
             ltx_passo.ItemHeight = 32;
             ltx_passo.Location = new Point(38, 77);
             ltx_passo.Name = "ltx_passo";
@@ -104,6 +113,7 @@
             Controls.Add(num_b);
             Controls.Add(num_a);
             Controls.Add(btn_calcular);
+            MinimumSize = new Size(393, 455);
             Name = "frm_algoritmo";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Algoritmo Estendido de Euclides";
